@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/photograph'
 require './lib/artist'
 require './lib/curator'
+require 'pry'
 
 class CuratorTest < Minitest::Test
 
@@ -54,7 +55,18 @@ class CuratorTest < Minitest::Test
   end
 
   def test_the_artist_has_a_name
+    skip
     @curator.add_artist(@artist)
     assert_equal "Henri Cartier-Bresson", @curator.artists.first.name
+  end
+
+  def test_it_can_find_artist_by_id
+    @curator.add_artist(@artist)
+    assert_equal @artist, @curator.find_artist_by_id("1")
+  end
+
+  def test_it_can_find_artist_by_another_id
+    @curator.add_artist(@artist)
+    assert_equal @artist, @curator.find_artist_by_id("2")
   end
 end
