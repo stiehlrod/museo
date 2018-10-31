@@ -25,4 +25,9 @@ attr_reader :artists, :photographs
     end
     artist_by_id[0]
   end
+
+  # def find_photographs_by_artist(artist)
+  #   @artist.select do |artist|
+  #     artist
+  #   end
 end
